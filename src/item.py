@@ -29,6 +29,13 @@ class Item:
     def __str__(self):
         return self.name
 
+    def __add__(self, other):
+        if issubclass(other.__class__, self.__class__):
+            summ = self.quantity + other.quantity
+            return summ
+        else:
+            raise Exception("Неверный объект")
+
     @property
     def name(self) -> str:
         return self.__name
