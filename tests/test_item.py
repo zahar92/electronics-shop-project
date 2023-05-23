@@ -4,6 +4,10 @@ import pytest
 from src.item import Item
 
 
+def test_item_all():
+    assert Item.all == []
+
+
 @pytest.fixture()
 def item_1():
     return Item("Test1", 10000, 20)
@@ -27,10 +31,6 @@ def test_str(item_2):
     assert str(item_2) == "Test2"
 
 
-def test_item_all():
-    assert Item.all == []
-
-
 def test_string_to_number():
     assert Item.string_to_number('1') == 1
     assert Item.string_to_number('2.0') == 2
@@ -41,7 +41,7 @@ def test_string_to_number():
 def test_instantiate_from_csv(item_from_csv):
     assert len(Item.all) == 5
     with pytest.raises(FileNotFoundError):
-        Item.instantiate_from_csv('../src/items1.csv')
+        Item.instantiate_from_csv('src/items1.csv')
 
 
 def test_calculate_total_price():

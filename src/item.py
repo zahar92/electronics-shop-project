@@ -48,7 +48,7 @@ class Item:
             self.__name = new_name
 
     @classmethod
-    def instantiate_from_csv(cls, path='../src/items.csv'):
+    def instantiate_from_csv(cls, path='src/items.csv'):
         cls.all.clear()
         try:
             with open(path, encoding="CP1251", newline='') as f:
@@ -56,7 +56,7 @@ class Item:
                 for row in csv_file:
                     cls(row['name'], row['price'], row['quantity'])
         except FileNotFoundError:
-            raise FileNotFoundError('Отсутствует файл item.csv')
+            raise FileNotFoundError('Отсутствует файл items.csv')
 
     @staticmethod
     def string_to_number(str_num):
