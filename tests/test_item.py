@@ -19,6 +19,14 @@ def item_from_csv():
     return Item.instantiate_from_csv()
 
 
+def test_repr(item_1):
+    assert repr(item_1) == "Item('Test1', 10000, 20)"
+
+
+def test_str(item_2):
+    assert str(item_2) == "Test2"
+
+
 def test_item_all():
     assert Item.all == []
 
